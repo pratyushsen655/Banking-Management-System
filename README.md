@@ -2,49 +2,70 @@
 
 ## Overview
 
-The **Banking Management System** is a Java-based application designed to handle basic banking operations such as customer account creation, login, transactions, and account management. The system provides a user-friendly interface for both new and existing customers to manage their banking needs digitally.
+The **Banking Management System** is a comprehensive Java-based application with both desktop (Java Swing) and web (Spring Boot) interfaces. It handles banking operations such as account creation, login, deposits, withdrawals, transfers, and transaction history management.
+
+## Repository Structure
+
+This repository contains the complete Banking Management System in the `banking-system/` directory:
+- **banking-system/desktop/** - Desktop application (Java Swing)
+- **banking-system/web/** - Web application (Spring Boot)
+- **banking-system/legacy/** - Legacy console-based banking files
+
+All project code, documentation, and resources are organized within the `banking-system/` folder.
+
+## Getting Started with Banking Management System
+
+The main Banking Management System is located in the `banking-system/` directory.
+
+### Quick Start
+
+**Desktop Application:**
+```bash
+cd banking-system/desktop
+./build.sh
+java -cp target/classes com.banking.desktop.ui.LoginFrame
+```
+
+**Web Application:**
+```bash
+cd banking-system/web
+mvn spring-boot:run
+# Access at http://localhost:8080
+```
+
+### Default Test Credentials
+- **Username:** admin
+- **Password:** admin123
+
+## Documentation
+
+For complete documentation, please see:
+- [banking-system/README.md](banking-system/README.md) - Complete overview
+- [banking-system/QUICKSTART.md](banking-system/QUICKSTART.md) - Quick start guide
+- [banking-system/desktop/README.md](banking-system/desktop/README.md) - Desktop app
+- [banking-system/web/README.md](banking-system/web/README.md) - Web app with API docs
+- [banking-system/IMPLEMENTATION_SUMMARY.md](banking-system/IMPLEMENTATION_SUMMARY.md) - Implementation details
 
 ## Features
 
-- **Account Creation:** Users can sign up and create new bank accounts.
-- **Login/Authentication:** Secure customer login using unique credentials.
-- **Deposit & Withdrawal:** Perform transactions on existing accounts.
-- **Account Details:** View and manage customer account information.
-- **Exit Process:** Safe logout and account closure process.
+### Desktop Application (Java Swing)
+- Full-featured GUI with login, signup, dashboard, and transaction history
+- In-memory data storage
+- Real-time balance updates
 
-## Technologies Used
+### Web Application (Spring Boot + Thymeleaf)
+- RESTful API with 10+ endpoints
+- Session-based web interface
+- Responsive design
+- Complete banking operations
 
-- Java (Core Java concepts)
-- Text-based menu navigation (console application)
-- File I/O (for storing data locally)
+## Technologies
 
-## Getting Started
-
-### Prerequisites
-
-- Java Development Kit (JDK) installed on your machine
-- Text editor/IDE (e.g., VS Code, IntelliJ IDEA)
-
-### Running the Application
-
-1. Clone this repository:
-   ```
-   git clone https://github.com/pratyushsen655/Banking-Management-System.git
-   ```
-2. Open the project directory in your IDE.
-3. Compile the Java files:
-   ```
-   javac *.java
-   ```
-4. Run the main application class:
-   ```
-   java Main
-   ```
-
-## Folder Structure
-
-- `Main.java` - Entry point of the application.
-- Additional supporting files/classes like `Account.java`, `Bank.java`, etc.
+- Java 17
+- Java Swing (Desktop)
+- Spring Boot 3.1.5 (Web)
+- Thymeleaf
+- Maven
 
 ## Contributing
 
@@ -60,4 +81,4 @@ This project is currently unlicensed. You may choose to add one as appropriate.
 
 ---
 
-Feel free to contact for any queries or support regarding the Banking Management System.
+For detailed information about the Banking Management System, see the [banking-system/](banking-system/) directory.

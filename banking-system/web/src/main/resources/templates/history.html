@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History - Banking System</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container dashboard-container">
+        <h1>Transaction History</h1>
+        <h2>Account: <span th:text="${account.accountNumber}"></span></h2>
+        <p><strong>Account Type:</strong> <span th:text="${account.accountType}"></span></p>
+        <p><strong>Current Balance:</strong> $<span th:text="${#numbers.formatDecimal(account.balance, 1, 2)}"></span></p>
+        
+        <div th:if="${#lists.isEmpty(transactions)}" class="alert alert-error">
+            <p>No transactions found for this account.</p>
+        </div>
+        
+        <div th:if="${!#lists.isEmpty(transactions)}">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date & Time</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Description</th>
+                        <th>Balance After</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="transaction : ${transactions}">
+                        <td th:text="${transaction.formattedTimestamp}"></td>
+                        <td th:text="${transaction.transactionType}"></td>
+                        <td th:text="${'$' + #numbers.formatDecimal(transaction.amount, 1, 2)}"></td>
+                        <td th:text="${transaction.description}"></td>
+                        <td th:text="${'$' + #numbers.formatDecimal(transaction.balanceAfter, 1, 2)}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="button-group">
+            <button type="button" onclick="window.location.href='/dashboard'">Back to Dashboard</button>
+        </div>
+    </div>
+</body>
+</html>
