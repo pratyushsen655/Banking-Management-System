@@ -91,8 +91,11 @@ public class TransactionHistoryFrame extends JFrame {
             tableModel.addRow(row);
         } else {
             for (Transaction transaction : transactions) {
+                String shortId = transaction.getTransactionId().length() > 8 
+                    ? transaction.getTransactionId().substring(0, 8) + "..." 
+                    : transaction.getTransactionId();
                 Object[] row = {
-                    transaction.getTransactionId().substring(0, 8) + "...",
+                    shortId,
                     transaction.getTransactionType(),
                     String.format("$%.2f", transaction.getAmount()),
                     transaction.getDescription(),

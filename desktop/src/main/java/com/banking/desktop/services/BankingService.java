@@ -160,15 +160,27 @@ public class BankingService {
             return false;
         }
         
-        if (fromAccount.withdraw(amount) && toAccount.deposit(amount)) {
-            Transaction debitTransaction = new Transaction(fromAccountNumber, "TRANSFER", amount, 
-                "Transfer to " + toAccountNumber, fromAccount.getBalance());
-            Transaction creditTransaction = new Transaction(toAccountNumber, "TRANSFER", amount, 
-                "Transfer from " + fromAccountNumber, toAccount.getBalance());
-            
-            transactions.add(debitTransaction);
-            transactions.add(creditTransaction);
-            return true;
+        // Check if withdrawal is possible before attempting
+        if (fromAccount.getBalance() < amount) {
+            return false;
+        }
+        
+        // Perform transfer atomically
+        if (fromAccount.withdraw(amount)) {
+            if (toAccount.deposit(amount)) {
+                Transaction debitTransaction = new Transaction(fromAccountNumber, "TRANSFER", amount, 
+                    "Transfer to " + toAccountNumber, fromAccount.getBalance());
+                Transaction creditTransaction = new Transaction(toAccountNumber, "TRANSFER", amount, 
+                    "Transfer from " + fromAccountNumber, toAccount.getBalance());
+                
+                transactions.add(debitTransaction);
+                transactions.add(creditTransaction);
+                return true;
+            } else {
+                // Rollback withdrawal if deposit fails
+                fromAccount.deposit(amount);
+                return false;
+            }
         }
         return false;
     }

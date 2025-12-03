@@ -185,13 +185,25 @@ public class BankingWebController {
     @GetMapping("/history/{accountNumber}")
     public String transactionHistory(@PathVariable String accountNumber,
                                      HttpSession session,
-                                     Model model) {
+                                     Model model,
+                                     RedirectAttributes redirectAttributes) {
         String userId = (String) session.getAttribute("userId");
         if (userId == null) {
             return "redirect:/login";
         }
         
         Account account = bankingService.getAccount(accountNumber);
+        if (account == null) {
+            redirectAttributes.addFlashAttribute("error", "Account not found");
+            return "redirect:/dashboard";
+        }
+        
+        // Check if the account belongs to the logged-in user
+        if (!account.getUserId().equals(userId)) {
+            redirectAttributes.addFlashAttribute("error", "Unauthorized access to account");
+            return "redirect:/dashboard";
+        }
+        
         List<Transaction> transactions = bankingService.getAccountTransactions(accountNumber);
         
         model.addAttribute("account", account);

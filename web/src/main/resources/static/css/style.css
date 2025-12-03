@@ -94,6 +94,10 @@ button:hover {
     background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 }
 
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
 .link {
     text-align: center;
     margin-top: 20px;
