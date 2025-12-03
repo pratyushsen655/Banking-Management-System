@@ -64,8 +64,13 @@ banking-system/
 │   ├── pom.xml          # Maven configuration
 │   ├── README.md
 │   └── API_TESTING.md
+├── legacy/              # Legacy console-based files
+│   ├── BankingSystem.java
+│   ├── Login.java
+│   └── Signup.java
 ├── QUICKSTART.md        # Quick start guide
-└── IMPLEMENTATION_SUMMARY.md  # Detailed implementation summary
+├── IMPLEMENTATION_SUMMARY.md  # Detailed implementation summary
+└── README.md            # This file
 ```
 
 ## Getting Started

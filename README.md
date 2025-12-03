@@ -6,9 +6,12 @@ The **Banking Management System** is a comprehensive Java-based application with
 
 ## Repository Structure
 
-This repository contains:
-- **banking-system/** - The complete Banking Management System implementation (Desktop + Web)
-- Legacy console-based banking files (BankingSystem.java, Login.java, Signup.java)
+This repository contains the complete Banking Management System in the `banking-system/` directory:
+- **banking-system/desktop/** - Desktop application (Java Swing)
+- **banking-system/web/** - Web application (Spring Boot)
+- **banking-system/legacy/** - Legacy console-based banking files
+
+All project code, documentation, and resources are organized within the `banking-system/` folder.
 
 ## Getting Started with Banking Management System
 
