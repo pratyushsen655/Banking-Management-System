@@ -2,155 +2,71 @@
 
 ## Overview
 
-The **Banking Management System** is a comprehensive Java-based application with both desktop (Java Swing) and web (Spring Boot) interfaces. It handles banking operations such as account creation, login, deposits, withdrawals, transfers, and transaction history management. The system provides user-friendly interfaces for customers to manage their banking needs digitally.
+The **Banking Management System** is a comprehensive Java-based application with both desktop (Java Swing) and web (Spring Boot) interfaces. It handles banking operations such as account creation, login, deposits, withdrawals, transfers, and transaction history management.
 
-## Features
+## Repository Structure
 
-### Core Banking Operations
-- **User Registration & Login:** Secure authentication system
-- **Account Creation:** Create Savings or Current accounts
-- **Deposit Money:** Add funds to accounts
-- **Withdraw Money:** Remove funds from accounts
-- **Transfer Money:** Transfer funds between accounts
-- **View Balance:** Check current account balance
-- **Transaction History:** View complete transaction records
+This repository contains:
+- **banking-system/** - The complete Banking Management System implementation (Desktop + Web)
+- Legacy console-based banking files (BankingSystem.java, Login.java, Signup.java)
 
-### Desktop Application (Java Swing)
-- Rich GUI using Java Swing
-- Interactive forms and tables
-- Real-time updates
-- In-memory data storage
+## Getting Started with Banking Management System
 
-### Web Application (Spring Boot)
-- RESTful API endpoints
-- Thymeleaf-based web interface
-- Session-based authentication
-- Responsive design
-- In-memory data storage
+The main Banking Management System is located in the `banking-system/` directory.
 
-## Technologies Used
+### Quick Start
 
-- **Core:** Java 17
-- **Desktop:** Java Swing
-- **Web Framework:** Spring Boot 3.1.5
-- **Template Engine:** Thymeleaf
-- **Build Tools:** Maven, Shell scripts
-- **Data Storage:** In-memory (HashMap, ArrayList)
-
-## Project Structure
-
-```
-Banking-Management-System/
-├── desktop/              # Desktop application (Java Swing)
-│   ├── src/
-│   │   └── main/java/com/banking/desktop/
-│   │       ├── models/      # Data models
-│   │       ├── services/    # Business logic
-│   │       └── ui/          # Swing UI components
-│   ├── build.sh         # Build script
-│   └── README.md
-├── web/                 # Web application (Spring Boot)
-│   ├── src/
-│   │   ├── main/
-│   │   │   ├── java/com/banking/web/
-│   │   │   │   ├── models/         # Data models
-│   │   │   │   ├── services/       # Business logic
-│   │   │   │   ├── controllers/    # REST & Web controllers
-│   │   │   │   └── BankingWebApplication.java
-│   │   │   └── resources/
-│   │   │       ├── templates/      # Thymeleaf templates
-│   │   │       ├── static/css/     # Stylesheets
-│   │   │       └── application.properties
-│   ├── pom.xml          # Maven configuration
-│   └── README.md
-├── BankingSystem.java   # Original console application
-├── Login.java           # Original login UI
-├── Signup.java          # Original signup UI
-└── README.md            # This file
-```
-
-## Getting Started
-
-### Prerequisites
-
-- **Java Development Kit (JDK) 17 or higher**
-- **Maven 3.6 or higher** (for web application)
-- **Git** (for cloning the repository)
-
-### Clone the Repository
-
+**Desktop Application:**
 ```bash
-git clone https://github.com/pratyushsen655/Banking-Management-System.git
-cd Banking-Management-System
-```
-
-## Running the Desktop Application
-
-```bash
-cd desktop
+cd banking-system/desktop
 ./build.sh
 java -cp target/classes com.banking.desktop.ui.LoginFrame
 ```
 
-For detailed instructions, see [desktop/README.md](desktop/README.md)
-
-## Running the Web Application
-
+**Web Application:**
 ```bash
-cd web
-mvn clean install
+cd banking-system/web
 mvn spring-boot:run
+# Access at http://localhost:8080
 ```
 
-Then open your browser and navigate to: `http://localhost:8080`
-
-For detailed instructions and API documentation, see [web/README.md](web/README.md)
-
-## Default Test Credentials
-
-Both applications come with a pre-configured test account:
+### Default Test Credentials
 - **Username:** admin
 - **Password:** admin123
-- **Account Number:** 1001
-- **Initial Balance:** $10,000.00
 
-## Key Models
+## Documentation
 
-### User
-- userId, username, password, email, fullName
+For complete documentation, please see:
+- [banking-system/README.md](banking-system/README.md) - Complete overview
+- [banking-system/QUICKSTART.md](banking-system/QUICKSTART.md) - Quick start guide
+- [banking-system/desktop/README.md](banking-system/desktop/README.md) - Desktop app
+- [banking-system/web/README.md](banking-system/web/README.md) - Web app with API docs
+- [banking-system/IMPLEMENTATION_SUMMARY.md](banking-system/IMPLEMENTATION_SUMMARY.md) - Implementation details
 
-### Account
-- accountNumber, userId, accountType, balance, accountHolderName
+## Features
 
-### Transaction
-- transactionId, accountNumber, transactionType, amount, timestamp, description, balanceAfter
+### Desktop Application (Java Swing)
+- Full-featured GUI with login, signup, dashboard, and transaction history
+- In-memory data storage
+- Real-time balance updates
 
-## API Endpoints (Web Application)
+### Web Application (Spring Boot + Thymeleaf)
+- RESTful API with 10+ endpoints
+- Session-based web interface
+- Responsive design
+- Complete banking operations
 
-- `POST /api/register` - Register new user
-- `POST /api/login` - Login
-- `POST /api/accounts/create` - Create account
-- `GET /api/accounts/{userId}` - Get user accounts
-- `POST /api/deposit` - Deposit money
-- `POST /api/withdraw` - Withdraw money
-- `POST /api/transfer` - Transfer money
-- `GET /api/transactions/{accountNumber}` - Get transaction history
-- `GET /api/balance/{accountNumber}` - Get account balance
+## Technologies
+
+- Java 17
+- Java Swing (Desktop)
+- Spring Boot 3.1.5 (Web)
+- Thymeleaf
+- Maven
 
 ## Contributing
 
-Contributions are welcome! Please feel free to:
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-## Notes
-
-- Both applications use in-memory storage (data is not persisted)
-- Each application maintains its own separate data store
-- The desktop and web applications can run simultaneously on the same machine
-- All monetary values are handled as double precision floating-point numbers
+Feel free to fork the repository, make changes, and submit pull requests. All contributions and suggestions are welcome!
 
 ## License
 
@@ -162,4 +78,4 @@ This project is currently unlicensed. You may choose to add one as appropriate.
 
 ---
 
-For questions or support, please open an issue on GitHub.
+For detailed information about the Banking Management System, see the [banking-system/](banking-system/) directory.
